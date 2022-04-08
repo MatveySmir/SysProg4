@@ -1,0 +1,59 @@
+﻿<Window x:Class="WpfApp4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp4"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="15" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Column="1" Grid.Row="1">
+            <DockPanel DockPanel.Dock="Top">
+                <Label Content="Введи начальное значение" Width="190"  DockPanel.Dock="Left"/>
+                <TextBox x:Name="FirstNumTextBox" TabIndex="0" Height="20" />
+            </DockPanel>
+
+            <DockPanel DockPanel.Dock="Top">
+                <Label Content="Введи количество" Width="190"
+                       DockPanel.Dock="Left"/>
+                <TextBox x:Name="CountTextBox" TabIndex="1" Height="20" />
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <Button x:Name="StartWithoutThreadButton" DockPanel.Dock="Top" Margin="0,5,0,0"
+                        Content="Искать простые числа без использования потоков" 
+                        Click="StartWithoutThreadButton_Click" TabIndex="2"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <Button x:Name="StartWithThreadButton" DockPanel.Dock="Top" Margin="0,5,0,0"
+                        Content="Искать простые числа с использованием потоков" 
+                        Click="StartWithThreadButton_Click" TabIndex="3"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <Button x:Name="StartWithThreadLimitButton" DockPanel.Dock="Top" Margin="0,5,0,0"
+                        Content="Искать простые числа с использованием потоков(лимит 25)" 
+                        Click="StartWithThreadLimitButton_Click" TabIndex="3"/>
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Bottom">
+                <Label Content="Длительность операции" DockPanel.Dock="Left" Width="190"/>
+                <TextBox x:Name="TimeOperation" IsReadOnly="True"
+					TabIndex="5" Height="20" />
+            </DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <Label Content="Результаты:" DockPanel.Dock="Top"/>
+                <Button x:Name="ClearResult" DockPanel.Dock="Bottom" Content="Очистить" TabIndex="6" Click="ClearResult_Click"/>
+                <ListBox x:Name="ResultsListBox" TabIndex="4"/>
+            </DockPanel>
+
+        </DockPanel>
+    </Grid>
+</Window>
